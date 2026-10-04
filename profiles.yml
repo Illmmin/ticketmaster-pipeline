@@ -1,0 +1,83 @@
+user:
+  outputs:
+    default:
+      keyfile_json:
+        auth_provider_x509_cert_url: https://www.googleapis.com/oauth2/v1/certs
+        auth_uri: https://accounts.google.com/o/oauth2/auth
+        client_email: iam-857@ticketmaster-pipeline.iam.gserviceaccount.com
+        client_id: '115308464753382247472'
+        client_x509_cert_url: https://www.googleapis.com/robot/v1/metadata/x509/iam-857%40ticketmaster-pipeline.iam.gserviceaccount.com
+        private_key: '-----BEGIN PRIVATE KEY-----
+
+          MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDaVUGjMJFTIs+0
+
+          AwTf47y6Kfhr84yk3JH0o4w/pirPO0430hNXkLM3dqKBcQi3LjJSfQTpi8JkfKTB
+
+          rqGlb/AQ6vALjy6aYb8M882MI/xBocI6VHNi4ETIi1ZSOR2b6p1NvB0s8rqXcZMc
+
+          +9U2cBMMayVeRRjeUoL2OMiwEVHqwbAgfSiY7jswZxGtgQrim8urXErrxkAafLWR
+
+          lomqcLtb5RKly32rK1d2NNAVIB2xGnBqc13rz3jRxSwHJLwFLQ1ES0BbGL8K9tld
+
+          ZTb/quxBd87qAtUbA6Mx4MhxBbmgbtI1i7zX4alBwYtf0NzfFIl6vwhHATpJv8dg
+
+          Lmf6RgkZAgMBAAECggEAZ0ZcveyDUWfuB6BF9gGrjAO+VpHlvTX4dFfIR3M6XLwY
+
+          y567N3hizaF4TPJCxSM8+nfYkwBg+1daN6N7It5IGDiJQ25/BNenn2DToa6D7Cev
+
+          0BeSXProjlQaiNorf00DC3on8tL+IBTBGbylphJtcDpeerEEimVNPVqu01nd/cSw
+
+          8zgsTfA9/jcUootEvR5wXb4EgM16a7H9Au/6HjlZwrJNRa2p30a/XCLdj+nT65/j
+
+          3tFy1QRNFK460D/OkcUsBIxRIrfybAhI0wIThD2QAfoEw/d95PsZxOT4XcPx9xsZ
+
+          cXRsFY9K6U5dV8LvV3AaCvZ//O2gpFo8L9gf2eu1YQKBgQDwB59gYEKpRw8b4QDR
+
+          Mb0qfH1nd4FgGODOVn2mp2Sz5cZ7rnxSe+Ep59YyQUxnDvA6K+yecG9ZL7L2VgGf
+
+          sOoR8j3VWUcbG3bLyDhBANkCdgv9Uje19WDX2K7PuSiZLvxa142uDkEffM5gGb34
+
+          LTX8TiK6QP8KDzSryXNHy2BXcwKBgQDo3BPklCHLAQTT1Ah00MCoN6urgdyqJ210
+
+          POfkJlzkae4ZPtU3oU/e6mEMAAd58PLJtf4+vCA4y6oYoth3ru/09tCGkGCPwMUu
+
+          uExJpZ+8NsJfpfZP/3FBmpwHGQJSwlWXb9jzKAFihaZH9hE/xzZ4mlbYuwuGB7dM
+
+          6/wR1I7CQwKBgQCQhcZsnQkGK4bpXlzDmJMxlatcNRRs7A3PrzwQsBFuUBdmOPUa
+
+          JQS52qGZuL9r/g6et/vMmh4xMQssTzTDFh6Zl6WrZAnwRGUO5gsY+I2xcapeaLaq
+
+          lIgu7oSzBeVv9l5zw/3Go0aK0vbf3iAH4hDzTYiTZLcrM2SfWrhSrh3gCQKBgHk0
+
+          /QHQ/VoOuLWOO6yacH3fJHOMkBDdnwKPJWFDerzGStJHO3LOe6WbuFInvbyCZ84I
+
+          9kMvZ1JI6MwUD7sUiwCmbFpu0mRhQgIUmlkHZgLxOfHRkEmJvCka0jZ7lRMA5s6B
+
+          wJqo6zeeO7RfaBEbn8XdCHGdwtzMLWRTvYyGaJzDAoGBAKT0ktOLwaE8MtBPMFRa
+
+          7zXfg33Ptkrzc1Mr31LAWsctUavzs4j36qFVbyIicWjxTvsZMpKB0gSouczUE2Bw
+
+          /JYbwv54tpHwDAw0cdhod4AbG5kxUcf8HlZOr7aG00zE+v6cS6xHgzViag4YYn9J
+
+          gi7vwKYV6WiJFnf3CIDi7Jr7
+
+          -----END PRIVATE KEY-----
+
+          '
+        private_key_id: 558bb2f3390f4eb38d715c8cca9e6d23aee1017a
+        project_id: ticketmaster-pipeline
+        token_uri: https://oauth2.googleapis.com/token
+        type: service_account
+      location: EU
+      method: service-account-json
+      project: ticketmaster-pipeline
+      schema: dbt_iabdouradjack
+      scopes:
+      - https://www.googleapis.com/auth/bigquery
+      - https://www.googleapis.com/auth/cloud-platform
+      - https://www.googleapis.com/auth/drive
+      - https://www.googleapis.com/auth/userinfo.email
+      target_name: default
+      threads: 4
+      type: bigquery
+  target: default

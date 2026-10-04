@@ -2,14 +2,19 @@ version: 2
 
 sources:
   - name: raw_data
-    database: ticketmaster-pipeline     
-    schema: raw_data             
+    database: ticketmaster-pipeline
+    schema: raw_data              # doit matcher BIGQUERY_DATASET du .env d'ingestion
     tables:
       - name: raw_events
         description: >
           Table brute alimentée par le script d'ingestion Python. Une ligne par
           événement chargé, avec le payload complet (déjà partiellement normalisé
           par parsers.py) dans une colonne JSON.
+        config:
+          loaded_at_field: ingested_at
+          freshness:
+            warn_after: {count: 2, period: day}
+            error_after: {count: 7, period: day}
         columns:
           - name: ingested_at
             description: Timestamp de chargement dans BigQuery
@@ -17,7 +22,3 @@ sources:
             description: Nom du fichier NDJSON source, un par run d'ingestion
           - name: payload
             description: Événement normalisé (event_id, name, venue, artists, prix...) en JSON
-        loaded_at_field: ingested_at
-        freshness:
-          warn_after: {count: 2, period: day}
-          error_after: {count: 7, period: day}
