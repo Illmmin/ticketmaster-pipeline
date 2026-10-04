@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: fct_events
+    description: Table de faits — un événement par ligne, prête pour l'analyse de prix par genre/artiste/venue
+    columns:
+      - name: event_id
+        tests:
+          - unique
+          - not_null
+      - name: venue_id
+        tests:
+          - relationships:
+              to: ref('dim_venues')
+              field: venue_id
+              config:
+                severity: warn
+
+  - name: dim_venues
+    description: Dimension des salles
+    columns:
+      - name: venue_id
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_artists
+    description: Dimension des artistes
+    columns:
+      - name: artist_id
+        tests:
+          - unique
+          - not_null
+
+  - name: bridge_event_artists
+    description: Table de liaison many-to-many entre événements et artistes
+    columns:
+      - name: event_id
+        tests:
+          - relationships:
+              to: ref('fct_events')
+              field: event_id
+      - name: artist_id
+        tests:
+          - relationships:
+              to: ref('dim_artists')
+              field: artist_id

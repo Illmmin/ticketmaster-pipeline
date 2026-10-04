@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: stg_events
+    description: Un événement par ligne, dédupliqué sur event_id (version la plus récente conservée)
+    columns:
+      - name: event_id
+        description: Identifiant unique de l'événement côté Ticketmaster
+        tests:
+          - unique
+          - not_null
+      - name: event_name
+        tests:
+          - not_null
+      - name: price_min
+        description: >
+          Prix minimum observé. Souvent NULL — l'API ne publie pas toujours
+          de fourchette de prix (voir notes de projet). Ne pas tester not_null ici.
+      - name: venue_id
+        tests:
+          - relationships:
+              to: ref('stg_venues')
+              field: venue_id
+              config:
+                severity: warn   # warn plutôt que error : un venue_id peut être absent côté API
+
+  - name: stg_venues
+    description: Une salle par ligne, dédupliquée
+    columns:
+      - name: venue_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_artists
+    description: Table de liaison événement <-> artiste, une ligne par couple (event_id, artist_id)
+    columns:
+      - name: event_id
+        tests:
+          - not_null
+      - name: artist_id
+        tests:
+          - not_null

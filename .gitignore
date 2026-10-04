@@ -1,0 +1,5 @@
+.env
+service-account.json
+target/
+dbt_packages/
+logs/
