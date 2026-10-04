@@ -1,0 +1,14 @@
+# Profil utilisé par Airflow (dbt Core). Aucune valeur sensible ici :
+# tout vient des variables d'environnement du conteneur.
+ticketmaster:
+  target: prod
+  outputs:
+    prod:
+      type: bigquery
+      method: service-account
+      project: "{{ env_var('GCP_PROJECT_ID') }}"
+      dataset: "{{ env_var('DBT_DATASET', 'analytics') }}"
+      keyfile: "{{ env_var('GOOGLE_APPLICATION_CREDENTIALS') }}"
+      location: "{{ env_var('BIGQUERY_LOCATION', 'EU') }}"
+      threads: 4
+      timeout_seconds: 300
